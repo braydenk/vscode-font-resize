@@ -1,0 +1,54 @@
+{
+	"name": "font-resizer",
+	"displayName": "font-resizer",
+	"description": "Shortcuts to adjust the font size settings instead of zooming",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.34.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.incrementFontSize",
+    "onCommand:extension.decrementFontSize"
+	],
+	"main": "./extension.js",
+	"contributes": {
+    "keybindings": [
+      {
+        "command": "extension.incrementFontSize",
+        "key": "ctrl+=",
+        "mac": "cmd+=",
+        "when": "editorFocus"
+      },
+      {
+        "command": "extension.decrementFontSize",
+        "key": "ctrl+-",
+        "mac": "cmd+-",
+        "when": "editorFocus"
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.incrementFontSize",
+        "title": "Increase font size"
+      },
+      {
+        "command": "extension.decrementFontSize",
+        "title": "Decrease font size"
+      }
+    ]
+  },
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"eslint": "^5.13.0",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	}
+}
